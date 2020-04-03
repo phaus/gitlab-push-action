@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/phaus/gitlab-push-action"
 LABEL "homepage"="https://github.com/phaus/gitlab-push-action"
 LABEL "maintainer"="Philipp Haußleiter <philipp@haussleiter.de>"
 
-RUN apk add --update git bash git-lfs && \
+RUN apk add --update git openssh bash git-lfs && \
     rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh

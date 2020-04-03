@@ -42,7 +42,9 @@ Use `DST_BRANCH` to set your Gitlab __destination__ branch (e.g. master).
 ```yaml
 name: Push to Gitlab
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -54,11 +56,9 @@ jobs:
       with:
         args: "https://gitlab.com/<namespace>/<repository>"
       env:
-        GITLAB_REPOSITORY: ${{ secrets. GITLAB_REPOSITORY }}
+        GITLAB_REPOSITORY: "git@git-lab.de:meta-view/homepage.git"
         GITLAB_HOST_KEY: ${{ secrets.GITLAB_HOST_KEY }}
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        GITLAB_REPOSITORY: ${{ secrets.GITLAB_REPOSITORY }}
-        SRC_BRANCH: ${{ secrets.SRC_BRANCH }}
-        DST_BRANCH: ${{ secrets.DST_BRANCH }}
-        
+        SRC_BRANCH: "master"
+        DST_BRANCH: "master"
 ```
