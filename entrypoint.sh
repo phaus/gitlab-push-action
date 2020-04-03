@@ -2,6 +2,9 @@
 
 set -u -e -x
 
+# fix see https://stackoverflow.com/a/18079668
+mknod -m 666 /dev/tty c 5 0
+
 echo "Push $GITHUB_REPOSITORY to $GITLAB_REPOSITORY"
 mkdir -p ~/.ssh
 echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
