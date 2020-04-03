@@ -10,13 +10,11 @@ chmod go-w ~/
 chmod 700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
 
-ssh-keyscan github.com >> ~/.ssh/known_hosts
-ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
-ssh-keyscan $GITLAB_HOST >> ~/.ssh/known_hosts
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+ssh-keyscan -H gitlab.com >> ~/.ssh/known_hosts
+ssh-keyscan -H $GITLAB_HOST >> ~/.ssh/known_hosts
 echo "" >> ~/.ssh/known_hosts
-chmod 0600 ~/.ssh/known_hosts
-cat  ~/.ssh/known_hosts
-
+echo ""
 git checkout "${GITHUB_REF:11}"
 git-lfs install 
 
