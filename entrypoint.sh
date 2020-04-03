@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -u
+set -u -e -x
 
 echo "Push $GITHUB_REPOSITORY to $GITLAB_REPOSITORY"
 mkdir -p ~/.ssh
