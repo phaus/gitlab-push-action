@@ -35,3 +35,30 @@ Add the Gitlab Repository as `GITLAB_REPOSITORY` to your Github project secrets 
 
 Use `SRC_BRANCH` to set your Github __source__ branch (e.g. master).  
 Use `DST_BRANCH` to set your Gitlab __destination__ branch (e.g. master).
+
+
+## Build Setup
+
+```yaml
+name: Push to Gitlab
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Push to Gitlab
+      uses: phaus/gitlab-push-action@master
+      with:
+        args: "https://gitlab.com/<namespace>/<repository>"
+      env:
+        GITLAB_REPOSITORY: ${{ secrets. GITLAB_REPOSITORY }}
+        GITLAB_HOST_KEY: ${{ secrets.GITLAB_HOST_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        GITLAB_REPOSITORY: ${{ secrets.GITLAB_REPOSITORY }}
+        SRC_BRANCH: ${{ secrets.SRC_BRANCH }}
+        DST_BRANCH: ${{ secrets.DST_BRANCH }}
+        
+```
