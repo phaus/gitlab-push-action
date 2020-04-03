@@ -3,6 +3,7 @@
 set -u -e -x
 
 # fix see https://stackoverflow.com/a/18079668
+rm -f /dev/tty
 mknod -m 666 /dev/tty c 5 0
 
 echo "Push $GITHUB_REPOSITORY to $GITLAB_REPOSITORY"
