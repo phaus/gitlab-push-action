@@ -19,15 +19,7 @@ Add this as `SSH_PRIVATE_KEY` variable to your Github project secrets.
 
 ## Host Key
 
-Create the base64 of the Repository Host Key (e.g. for git-lab.de):
-
-```bash
-ssh-keyscan git-lab.de >> githubKey
-ssh-keygen -lf githubKey | base64
-```
-
-Dass this as `GITLAB_HOST_KEY` variable to your Github project secrets.
-
+Add `GITLAB_HOST` as a variable to retrieve the host key. (e.g. git-lab.de).
 
 ## Repository
 
@@ -56,8 +48,8 @@ jobs:
       with:
         args: "https://gitlab.com/<namespace>/<repository>"
       env:
+        GITLAB_HOST: "git-lab.de"
         GITLAB_REPOSITORY: "git@git-lab.de:meta-view/homepage.git"
-        GITLAB_HOST_KEY: ${{ secrets.GITLAB_HOST_KEY }}
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SRC_BRANCH: "master"
         DST_BRANCH: "master"
