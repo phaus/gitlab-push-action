@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 set -u
@@ -11,6 +10,8 @@ echo $GITLAB_HOST_KEY | base64 -d  >> ~/.ssh/known_hosts
 chmod go-w ~/
 chmod 700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
+
+git checkout "${GITHUB_REF:11}"
 
 git remote add gitlab $GITLAB_REPOSITORY
 git push gitlab master
