@@ -22,7 +22,7 @@ echo ""
 
 ls -al ~/.ssh
 
-ssh -v "git@${GITLAB_HOST}"
+ssh -o StrictHostKeyChecking=no -v "git@${GITLAB_HOST}"
 
 git checkout "${GITHUB_REF:11}"
 git-lfs install 
