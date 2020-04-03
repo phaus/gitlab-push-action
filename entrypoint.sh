@@ -10,9 +10,9 @@ chmod go-w ~/
 chmod 700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
 
-ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-ssh-keyscan -t rsa gitlab.com >> ~/.ssh/known_hosts
-ssh-keyscan -t rsa $GITLAB_HOST >> ~/.ssh/known_hosts
+ssh-keyscan -Ht ecdsa github.com >> ~/.ssh/known_hosts
+ssh-keyscan -Ht ecdsa gitlab.com >> ~/.ssh/known_hosts
+ssh-keyscan -Ht ecdsa $GITLAB_HOST >> ~/.ssh/known_hosts
 echo "" >> ~/.ssh/known_hosts
 cat  ~/.ssh/known_hosts
 
