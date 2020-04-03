@@ -10,13 +10,11 @@ echo "Push $GITHUB_REPOSITORY to $GITLAB_REPOSITORY"
 mkdir -p /root/.ssh
 echo ${SSH_PRIVATE_KEY} | base64 -d > /root/.ssh/id_rsa
 
-ssh -o StrictHostKeyChecking=no -v "git@${GITLAB_HOST}"
-
 chmod go-w /root/
 chmod 700 /root/.ssh
 chmod 0600 /root/.ssh/id_rsa
 
-ls -al /root/.ssh
+ssh -o StrictHostKeyChecking=no -v "git@${GITLAB_HOST}"
 
 git checkout "${GITHUB_REF:11}"
 git-lfs install 
