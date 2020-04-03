@@ -14,9 +14,9 @@ chmod go-w ~/
 chmod 700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
 
+cat ~/.ssh/id_rsa
 ssh -o StrictHostKeyChecking=no -v "git@${GITLAB_HOST}"
 
-cat ~/.ssh/id_rsa
 ls -al ~/.ssh
 
 git checkout "${GITHUB_REF:11}"
