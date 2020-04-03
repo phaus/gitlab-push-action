@@ -12,9 +12,14 @@ chmod 0600 ~/.ssh/id_rsa
 
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 ssh-keyscan -t rsa gitlab.com >> ~/.ssh/known_hosts
-ssh-keyscan -t rsa $GITLAB_HOST >> ~/.ssh/known_hosts
+ssh-keyscan -t rsa ${GITLAB_HOST} >> ~/.ssh/known_hosts
 echo "" >> ~/.ssh/known_hosts
 echo ""
+
+ls -al ~/.ssh
+
+ssh -v git@${GITLAB_HOST}
+
 git checkout "${GITHUB_REF:11}"
 git-lfs install 
 
