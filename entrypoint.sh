@@ -12,6 +12,7 @@ chmod 700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
 
 git checkout "${GITHUB_REF:11}"
+git-lfs install 
 
 git remote add gitlab $GITLAB_REPOSITORY
 git push gitlab master
