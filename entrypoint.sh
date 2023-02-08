@@ -17,7 +17,7 @@ chmod 0600 /root/.ssh/id_rsa
 ssh -o StrictHostKeyChecking=no -v "git@${GITLAB_HOST}"
 
 git checkout "${GITHUB_REF:11}"
-git-lfs install 
+git lfs install --force
 
 git remote add gitlab $GITLAB_REPOSITORY
 git push gitlab $SRC_BRANCH:$DST_BRANCH
